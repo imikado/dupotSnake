@@ -1,8 +1,10 @@
 var width;
 var height;
 
-var originalWidth;
-var originalHeight;
+
+var originalWidth=480;
+var originalHeight=680;
+
 
 
 var global_iScore=0;
@@ -21,6 +23,13 @@ var oPageGameover;
 var global_oPiece;
 
 var global_tPositionSnake=Array();
+var global_oBall=null;
+
+var global_maxX2=parseInt(originalWidth/60);
+var global_maxY2=parseInt(originalHeight/60);
+
+
+console.debug('maxX2:'+global_maxX2+' max y'+global_maxY2);
 
 function savePositionSnake(){
     global_tPositionSnake=Array();
@@ -46,8 +55,6 @@ function placeSnakeOnGameOver(){
 
 function start(width_,height_){
 
-    originalWidth=480;
-    originalHeight=680;
 
     if(width_> height_){
         width=height_*(this.originalWidth/this.originalHeight)
@@ -107,6 +114,11 @@ function startParty(){
 
 
 }
+
+function getIntRandom( max_) {
+  return Math.floor(Math.random() * (max_ )) ;
+}
+
 function tick(){
 
     var prevX=global_oPiece.getLastX2();
@@ -117,10 +129,19 @@ function tick(){
 
     global_iter+=1;
 
-    if((global_iter%5)===0){
-        global_oPiece.addNode(prevX,prevY);
+    if(!global_oBall && (global_iter%5)===0){
+        //global_oPiece.addNode(prevX,prevY);
 
-        scoreUp();
+        if(global_oBall){
+            global_oBall.die();
+        }
+
+
+
+
+        global_oBall=new Ball(getIntRandom(global_maxX2),getIntRandom(global_maxY2));
+
+        //scoreUp();
     }
 }
 
@@ -191,6 +212,32 @@ function resetPages(){
 
 //---------------
 //-------enemy
+
+function Ball(x_,y_){
+
+
+    var x2=x_*calcul(60);
+    var y2=y_*calcul(60);
+
+    this.oComponent =   Qt.createComponent( "/Ball.qml");
+    this.object=this.oComponent.createObject(oPageScene.object,{"x": x2, "y": y2,"_x":x_,"_y":y_});
+
+    if( this.oComponent.status === Component.Error ){
+        console.debug("Error:"+ this.oComponent.errorString() );
+    }
+
+    this.getX2=function(){
+        return this.object._x;
+    }
+    this.getY2=function(){
+        return this.object._y;
+    }
+
+    this.die=function (){
+        this.object.die();
+    }
+
+}
 
 function Piece(x_,y_){
 
@@ -275,6 +322,14 @@ function Piece(x_,y_){
                 pageGameOver();
                 return false;
             }
+        }
+
+        if(global_oBall && x_===global_oBall.getX2() && y_===global_oBall.getY2()  ){
+
+            global_oBall.die();
+            global_oBall=null;
+            scoreUp();
+            this.addNode(this.getLastX2(),this.getLastY2());
         }
 
 

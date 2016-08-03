@@ -11,6 +11,7 @@
         <file>TestForm.ui.qml</file>
         <file>Left.qml</file>
         <file>Right.qml</file>
+        <file>Ball.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file>logoMobileDupot.png</file>

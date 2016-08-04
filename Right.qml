@@ -8,9 +8,16 @@ Item{
 
     Rectangle{
         id:rect1
-        color:"#223322"
+        color:"transparent"
         width:mainWindow.oGame.calcul(40)
         height:mainWindow.oGame.calcul(80)
+
+        Image{
+            source: "/images/btnLeft.png"
+
+            width:parent.width
+            height: parent.height
+        }
 
         MouseArea{
             anchors.fill: parent
@@ -20,11 +27,18 @@ Item{
     }
     Rectangle{
         id:rect2
-        color:"#443366"
+        color:"transparent"
         width:mainWindow.oGame.calcul(40)
         height:mainWindow.oGame.calcul(80)
 
         anchors.left:rect1.right
+
+        Image{
+            source: "/images/btnRight.png"
+
+            width:parent.width
+            height: parent.height
+        }
 
         MouseArea{
             anchors.fill: parent

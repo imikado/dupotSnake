@@ -16,6 +16,12 @@
     <qresource prefix="/images">
         <file>logoMobileDupot.png</file>
         <file>startGame.png</file>
+        <file>ballSprite.png</file>
+        <file>ballSprite2.png</file>
+        <file>btnDown.png</file>
+        <file>btnLeft.png</file>
+        <file>btnRight.png</file>
+        <file>btnUp.png</file>
     </qresource>
     <qresource prefix="/js">
         <file>game.js</file>

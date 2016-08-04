@@ -4,7 +4,7 @@ import QtQuick.Controls 1.5
 
 Rectangle {
     visible:true
-    color: "#ffffff"
+    color: "#5c6cbe"
     width:mainWindow.oGame.width
     height:mainWindow.oGame.height
 

@@ -110,6 +110,8 @@ function startParty(){
 
     global_oPiece=new Piece(2,3);
 
+    global_oBall=null;
+
     tickTimer.start();
 
 

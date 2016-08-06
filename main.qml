@@ -21,8 +21,8 @@ Window{
 
     function initApplication(){
         oGame=Game;
-        //oGame.start(Screen.width,Screen.height);
-        oGame.start(300,450);
+        oGame.start(Screen.width,Screen.height);
+        //oGame.start(400,650);
 
         width=mainWindow.oGame.width;
         height=mainWindow.oGame.height;

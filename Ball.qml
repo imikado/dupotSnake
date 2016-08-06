@@ -16,11 +16,11 @@ Rectangle {
             anchors.centerIn: parent
             source: "/images/ballSprite.png"
             frameCount: 3
-            frameDuration: 1000
+            frameDuration: 300
 
             frameWidth:  60
             frameHeight: 60
-            interpolate: true
+            interpolate: false
     }
 
     AnimatedSprite {

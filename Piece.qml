@@ -5,12 +5,26 @@ Rectangle {
     property int _x:0
     property int _y:0
 
-    color:"#443355"
+    color:"transparent"
     width:mainWindow.oGame.calcul(60)
     height:mainWindow.oGame.calcul(60)
     radius: 10
 
-    opacity:0.8
+    opacity:1
+
+    AnimatedSprite {
+            id: sprite
+            width:parent.width
+            height:parent.height
+            anchors.centerIn: parent
+            source: "/images/spriteNode.png"
+            frameCount: 3
+            frameDuration: 300
+
+            frameWidth:  60
+            frameHeight: 60
+            interpolate: false
+    }
 
     Behavior on x{
         id:behX

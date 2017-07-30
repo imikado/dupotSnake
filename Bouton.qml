@@ -29,7 +29,7 @@ Item {
 
         MouseArea{
             anchors.fill: parent
-            onClicked:_link()
+            onPressed:_link()
         }
 
     }

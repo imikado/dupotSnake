@@ -24,28 +24,34 @@ Rectangle {
     }
 
     AnimatedSprite {
-            id: sprite2
+            id: sprite2b
             width:parent.width
             height:parent.height
             anchors.centerIn: parent
             source: "/images/ballSprite2.png"
-            frameCount: 2
-            frameDuration: 500
-            loops: 1
+
+            frameCount: 3
+            frameDuration: 300
+
             frameWidth:  60
             frameHeight: 60
-            interpolate: true
-            visible: false
-            enabled: false
-            running: false
+            interpolate: false
+
+            loops: 1;
+
+            enabled: false;
+            visible: false;
 
             onRunningChanged:{
                 if (!running) {
                    die2();
+                }else{
+                    console.log('still running');
                 }
 
 
             }
+
 
     }
 
@@ -63,12 +69,19 @@ Rectangle {
 
     }
     function die(){
-        sprite2.start();
-        sprite2.visible=true;
+        sprite.visible=false;
+
+       sprite2b.visible=true;
+        sprite2b.start();
+
+        //die2();
+
         console.debug('die');
-        //destroy();
+
     }
     function die2(){
+
+        console.debug('die 2');
         destroy();
     }
 }

@@ -41,12 +41,14 @@ Rectangle{
 
     Left{
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: mainWindow.oGame.calcul( 50)
 
     }
 
     Right{
         anchors.bottom: parent.bottom
         anchors.right: parent.right
+        anchors.bottomMargin: mainWindow.oGame.calcul( 50)
     }
 
 }

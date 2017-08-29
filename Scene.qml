@@ -39,16 +39,12 @@ Rectangle{
 
 
 
-    Left{
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: mainWindow.oGame.calcul( 50)
+    Joystick{
+        x:0
+        y:0
+        width:parent.width
+        height:parent.height
 
-    }
-
-    Right{
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        anchors.bottomMargin: mainWindow.oGame.calcul( 50)
     }
 
 }

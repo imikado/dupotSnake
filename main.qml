@@ -9,7 +9,6 @@ Window{
     visible: true
 
 
-
     property var oGame
 
     contentOrientation :Qt.PortraitOrientation

@@ -12,6 +12,7 @@
         <file>Left.qml</file>
         <file>Right.qml</file>
         <file>Ball.qml</file>
+        <file>Joystick.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file>logoMobileDupot.png</file>
